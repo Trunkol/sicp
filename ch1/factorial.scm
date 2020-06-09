@@ -14,3 +14,20 @@
         ((= x 0) (* 2 y))
         ((= y 1) 2)
         (else (A (- x 1) (A x (- y 1))))))
+
+(define (fib n)
+  (cond ((= n 0) 0)
+  			((= n 1) 1)
+  			(else (+ (fib (- n 1))
+  							 (fib (- n 1))))))
+
+(define (fibperf n)
+  (fib-iter 1 0 n))
+(define (fib-iter a b count)
+  (if (= count 0) 
+  		b 
+  		(fib-iter (+ a b) a (- count 1))))
+
+(define (C x)
+  (cond ((< x 3) x)
+        (else (+ (C (- x 1)) (* 2 (C (- x 2))) (* 3 (C (- x 3)))))))
