@@ -20,3 +20,11 @@
   (define (sqrt-iter guess)
     (if (good-enough? guess) guess sqrt-iter(improve guess)))
 	(sqrt-iter 1.0))
+
+(define (factorial n)
+  (fact-iter 1 1 n))
+
+(define (fact-iter product counter max-count)
+  (if (> counter max-count)
+       	product
+        (fact-iter (* counter product) (+ counter 1) max-count)))
