@@ -31,3 +31,16 @@
 (define (C x)
   (cond ((< x 3) x)
         (else (+ (C (- x 1)) (* 2 (C (- x 2))) (* 3 (C (- x 3)))))))
+
+(define (expt b n)
+  (if (= n 0) 
+    1 
+    (* b (expt b (- n 1)))))
+
+(define (exptperf b n)
+  (expt-iter b n 1))
+(define (expt-iter b counter product)
+  (if (= counter 0)
+      product
+      (expt-iter b (- counter 1) (* b product))))
+
